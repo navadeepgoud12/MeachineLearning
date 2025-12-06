@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colorful Input Form</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #6dd5fa, #ff758c);
+        min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: flex-start;
+padding-top: 50px;
+
+    }
+
+    .form-container {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        width: 350px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    h2 {
+        text-align: center;
+        color: #ff4e88;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+        color: #444;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0 15px;
+        border: 2px solid #ff95b8;
+        border-radius: 8px;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    input:focus {
+        border-color: #ff4e88;
+        box-shadow: 0 0 8px #ff4e88;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background: #ff4e88;
+        border: none;
+        color: white;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #ff1571;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Input Form</h2>
+
+    <!-- Correctly opened form tag -->
+    <form action="{{ url_for('predict') }}" method="post">
+
+        <label>Temperature</label>
+        <input type="number" name="Temperature" placeholder="Enter Temperature">
+
+        <label>RH</label>
+        <input type="number" name="RH" placeholder="Relative Humidity">
+
+        <label>Ws</label>
+        <input type="number" name="Ws" placeholder="Wind Speed">
+
+        <label>Rain</label>
+        <input type="number" name="Rain" placeholder="Rainfall">
+
+        <label>FFMC</label>
+        <input type="number" name="FFMC" placeholder="FFMC Value">
+
+        <label>DMC</label>
+        <input type="number" name="DMC" placeholder="DMC Value">
+
+        <label>ISI</label>
+        <input type="number" name="ISI" placeholder="ISI Value">
+
+        <label>Classes</label>
+        <input type="text" name="Classes" placeholder="Enter Class">
+
+        <label>Region</label>
+        <input type="text" name="Region" placeholder="Enter Region">
+
+        <button type="submit">Predict</button>
+        
+    </form>
+<h2>The FWI prediction is {{result}}</h2>
+    
+</div>
+
+</body>
+</html>
